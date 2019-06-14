@@ -1,6 +1,6 @@
 <section class="cart-show">
 
-  <% if cart == {} %>
+  <% if cart.empty? %>
 
     <h1>Your cart is empty!</h1>
     <%= link_to "Return to home page", [:root] %>
