@@ -40,4 +40,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.web_console.whitelisted_ips = ['10.0.2.0/24']
+
+  ADMIN_USERNAME = ENV['ADMIN_USERNAME']
+  ADMIN_PASSWORD = ENV['ADMIN_PASSWORD']
 end
