@@ -1,0 +1,5 @@
+<h1>Thank you for your order!</h1>
+
+<% @order.line_items.each do |item| %>
+  <%= render 'order', product: item.product %>
+<% end %>

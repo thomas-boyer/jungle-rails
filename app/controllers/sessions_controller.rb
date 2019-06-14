@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
+      session[:email] = @user.email
       redirect_to :root
     else
       render :new
