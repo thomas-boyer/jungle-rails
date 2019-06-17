@@ -132,5 +132,55 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+
+product1 = Product.where(name: 'Red Bookshelf')[0]
+product2 = Product.where(name: 'Electric Chair')[0]
+product3 = Product.where(name: 'Optimal Sleeping Bed')[0]
+
+product1.reviews.create!({
+  user_id: 2,
+  description: 'I do quite enjoy this bookshelf of red',
+  rating: 3
+})
+
+product1.reviews.create!({
+  user_id: 3,
+  description: 'This red bookshelf is too red',
+  rating: 1
+})
+
+product2.reviews.create!({
+  user_id: 2,
+  description: 'Too morbid for me',
+  rating: 2
+})
+
+product3.reviews.create!({
+  user_id: 1,
+  description: "So crap it can't even be called a jester bed",
+  rating: 1
+})
+
+User.create!({
+  first_name: "Kyle",
+  last_name: "Maclachlan",
+  email: "km@gmail.com",
+  password: "hhh"
+})
+
+User.create!({
+  first_name: "Julianne",
+  last_name: "Moore",
+  email: "jm@gmail.com",
+  password: "aaa"
+})
+
+User.create!({
+  first_name: "Cate",
+  last_name: "Blanchett",
+  email: "cb@gmail.com",
+  password: "lll"
+})
 
 puts "DONE!"

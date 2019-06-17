@@ -26,6 +26,23 @@
       </div>
     </div>
 
+    <% if session['user_id'] && @reviews.all? { |r| r.user_id != session['user_id'] } %>
+
+      <%= form_for(:review, url: product_reviews_path(@product)) do |f| %>
+        <h3>Write a review</h3>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+
+        <%= f.label :rating %>
+        <%= select_tag(:rating, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]])) %>
+
+        <%= f.submit "Submit review" %>
+      <% end %>
+
+    <% end %>
+
+    <%= render @reviews.order(created_at: :desc) %>
+
   </article>
 
 </section>

@@ -1,0 +1,6 @@
+<% user = User.find(review.user_id) %>
+<strong><%= user.first_name %> <%= user.last_name %></strong>
+<p><%= review.description %> <%= review.rating %>/5</p>
+<% if review.user_id == session['user_id'] %>
+  <%= link_to "Delete", product_review_path(@product.id, review.id), method: :delete %>
+<% end %>
