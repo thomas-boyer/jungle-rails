@@ -3,9 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def update
-    @user = User.where(email: params[:session][:email])[0]
-
-    if @user && @user.authenticate(params[:session][:password])
+    if @user = User.authenticate_with_credentials(params[:session][:email], params[:session][:password])
       session[:user_id] = @user.id
       session[:email] = @user.email
       redirect_to :root
